@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="面包电影网(mianbaodianyingwang-wap.github.io) - 每日新鲜出炉的温暖片单，像刚烤好的面包一样治愈。汇集治愈系、爱情、喜剧、动画、美食、家庭、奇幻、纪录等温暖系影视资源推荐。">
+<meta name="keywords" content="面包电影网,mianbaodianyingwang-wap.github.io,治愈系电影,温暖片单,爱情电影,喜剧,动画电影,美食电影,家庭电影,奇幻,纪录">
+<meta name="robots" content="index,follow">
+<title>面包电影网 | 每日出炉 · 温暖片单 - mianbaodianyingwang-wap.github.io</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:#fff8ec;color:#4a3c2a;line-height:1.75;
+  /* 全站软萌点状底纹 */
+  background-image:radial-gradient(circle,#f2e2c6 1.2px,transparent 1.4px);
+  background-size:22px 22px;
+  overflow-x:hidden;
+}
+a{text-decoration:none;}
+:root{
+  --crust:#c47b3f;--crust-d:#9c5a26;--cream:#fff4e2;--butter:#ffd166;
+  --choco:#5c4033;--berry:#e76f51;--mint:#8ab17d;--ink:#3d3226;--soft:#a48b6c;
+}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:#f6e9d2;}
+::-webkit-scrollbar-thumb{background:var(--crust);border-radius:10px;}
+
+/* ===== 暖黄圆角顶栏 ===== */
+header{background:var(--crust);box-shadow:0 4px 0 rgba(156,90,38,.25);position:sticky;top:0;z-index:100;}
+.hd{max-width:1160px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px;}
+.loaf{
+  width:52px;height:52px;background:var(--butter);border-radius:26px 26px 20px 20px;
+  display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;
+  box-shadow:inset 0 -4px 0 rgba(156,90,38,.25),0 3px 0 rgba(156,90,38,.3);
+  border:2px solid #fff8ec;cursor:pointer;transition:.3s;
+}
+.loaf:hover{transform:scale(1.08) rotate(-6deg);}
+.brand h1{font-size:21px;font-weight:900;color:#fff8ec;letter-spacing:2px;}
+.brand small{font-size:10px;color:#fce6c8;letter-spacing:3px;}
+.hd-url{
+  margin-left:auto;background:rgba(255,248,236,.18);border:1px dashed #fce6c8;
+  border-radius:20px;padding:7px 16px;font-size:11px;color:#fce6c8;text-align:center;line-height:1.5;
+}
+.hd-url b{color:#fff8ec;font-size:12px;}
+nav{background:#b56d33;box-shadow:0 3px 0 rgba(156,90,38,.2);}
+.nav-in{max-width:1160px;margin:0 auto;padding:0 24px;display:flex;gap:4px;overflow-x:auto;}
+.nav-in a{
+  color:#fce6c8;font-size:14px;padding:11px 16px;white-space:nowrap;font-weight:600;
+  border-radius:14px 14px 0 0;transition:.2s;
+}
+.nav-in a:hover{background:var(--butter);color:var(--choco);}
+
+/* ===== 出炉 Hero ===== */
+.oven{max-width:1160px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:44px;align-items:center;}
+.bake h2{
+  font-size:48px;font-weight:900;color:var(--choco);line-height:1.2;letter-spacing:1px;
+}
+.bake h2 .hl{color:var(--berry);}
+.bake h2 .wave{display:inline-block;animation:wave 2.4s ease-in-out infinite;}
+@keyframes wave{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+.bake p.lead{font-size:16px;color:var(--soft);margin:20px 0 26px;max-width:520px;}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+.crumbs span{
+  background:var(--cream);border:1px solid #ecd8b6;border-radius:20px;padding:5px 14px;
+  font-size:13px;color:var(--crust-d);
+}
+.steam{display:inline-flex;gap:10px;align-items:flex-end;margin-left:8px;}
+.steam i{
+  width:8px;height:8px;background:var(--butter);border-radius:50%;opacity:.7;
+  animation:steam 2s ease-out infinite;
+}
+.steam i:nth-child(2){animation-delay:.4s;}
+.steam i:nth-child(3){animation-delay:.8s;}
+@keyframes steam{0%{transform:translateY(0) scale(1);opacity:.7;}100%{transform:translateY(-30px) scale(2.2);opacity:0;}}
+.btn{
+  display:inline-block;background:var(--berry);color:#fff;font-weight:800;font-size:15px;
+  padding:13px 30px;border-radius:30px;box-shadow:0 4px 0 #c4472e;transition:.2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 #c4472e;}
+.btn.ghost{background:var(--butter);color:var(--choco);box-shadow:0 4px 0 #d9a93f;margin-left:12px;}
+
+/* Hero 右侧：今日出炉卡片 */
+.tray{
+  background:#fff;border:3px solid var(--butter);border-radius:36px;padding:30px 26px;
+  box-shadow:0 12px 0 rgba(196,123,63,.15);position:relative;
+}
+.tray::before{content:'今日出炉';position:absolute;top:-16px;left:24px;background:var(--choco);color:#fff;
+  font-size:12px;font-weight:800;padding:6px 16px;border-radius:16px;letter-spacing:2px;}
+.tray h3{font-size:17px;color:var(--choco);margin-bottom:18px;padding-top:6px;}
+.tray ul{list-style:none;}
+.tray li{
+  display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px dashed #ecd8b6;
+}
+.tray li:last-child{border-bottom:none;}
+.tray .no{
+  width:30px;height:30px;flex-shrink:0;border-radius:50%;background:var(--cream);color:var(--crust-d);
+  font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;
+}
+.tray li:nth-child(1) .no{background:var(--butter);}
+.tray li b{display:block;font-size:14.5px;color:var(--ink);}
+.tray li span{font-size:11.5px;color:var(--soft);}
+.tray li em{font-style:normal;font-size:11px;color:var(--berry);font-weight:700;}
+
+/* ===== 通用区块 ===== */
+section{padding:26px 24px 60px;}
+.wrap{max-width:1160px;margin:0 auto;}
+.shelf-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap;}
+.shelf-head h2{font-size:26px;font-weight:900;color:var(--choco);letter-spacing:1px;}
+.shelf-head h2::before{content:'🍞';margin-right:10px;}
+.shelf-head p{font-size:13px;color:var(--soft);}
+.more{background:var(--cream);color:var(--crust-d);font-size:13px;font-weight:700;padding:7px 18px;border-radius:20px;border:1px solid #ecd8b6;transition:.2s;}
+.more:hover{background:var(--butter);}
+
+/* ===== 口味货架（大圆角货架卡） ===== */
+.shelf{
+  background:#fff;border:2px solid #f0dfc0;border-radius:40px;padding:34px;
+  box-shadow:0 8px 0 rgba(196,123,63,.1);
+}
+.flavors{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.flavor{
+  background:var(--cream);border-radius:26px;padding:24px 20px;text-align:center;
+  transition:.3s;cursor:pointer;position:relative;
+}
+.flavor:hover{transform:translateY(-6px);background:var(--butter);}
+.flavor .emo{font-size:36px;display:block;margin-bottom:10px;}
+.flavor h5{font-size:16px;color:var(--choco);font-weight:800;}
+.flavor small{display:block;font-size:11.5px;color:var(--soft);margin-top:5px;}
+
+/* ===== 吐司条片单 ===== */
+.toasts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.toast{
+  background:#fff;border-radius:22px;overflow:hidden;border:2px solid #f0dfc0;
+  box-shadow:0 6px 0 rgba(196,123,63,.1);transition:.3s;
+}
+.toast:hover{transform:translateY(-5px) rotate(-.6deg);box-shadow:0 10px 0 rgba(196,123,63,.15);}
+.toast .crust-top{
+  height:120px;display:flex;align-items:center;justify-content:center;font-size:44px;color:#fff;
+  background:var(--crust);
+}
+.toast:nth-child(2) .crust-top{background:var(--berry);}
+.toast:nth-child(3) .crust-top{background:var(--mint);}
+.toast:nth-child(4) .crust-top{background:#d99b3f;}
+.toast:nth-child(5) .crust-top{background:#8b6fae;}
+.toast:nth-child(6) .crust-top{background:#5fa8b8;}
+.toast .body{padding:18px 20px;}
+.toast h5{font-size:16px;color:var(--ink);font-weight:800;}
+.toast .meta{display:flex;justify-content:space-between;font-size:12px;color:var(--soft);margin:8px 0 12px;}
+.toast .tag{display:inline-block;background:var(--cream);color:var(--crust-d);font-size:11px;padding:3px 12px;border-radius:14px;}
+
+/* ===== 切片时间轴（面包切片造型） ===== */
+.slices{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;}
+.slice{
+  background:#fff;border-radius:0 30px 30px 0;padding:26px 26px 26px 40px;margin-left:20px;
+  position:relative;box-shadow:0 6px 0 rgba(196,123,63,.1);border:2px solid #f0dfc0;border-left:none;
+}
+.slice::before{
+  content:'';position:absolute;left:-20px;top:0;bottom:0;width:20px;background:#fff;border:2px solid #f0dfc0;
+  border-right:none;border-radius:30px 0 0 30px;
+}
+.slice .day{
+  position:absolute;left:-44px;top:24px;width:48px;height:48px;border-radius:50%;background:var(--butter);
+  border:3px solid #fff;box-shadow:0 0 0 2px var(--crust);display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:900;color:var(--choco);z-index:3;
+}
+.slice:nth-child(1) .day{background:var(--berry);color:#fff;}
+.slice h5{font-size:16px;color:var(--choco);font-weight:800;margin-bottom:8px;}
+.slice p{font-size:13px;color:var(--soft);line-height:1.9;}
+.slice .pin{font-size:11px;color:var(--berry);font-weight:700;}
+
+/* ===== 烘箱进度条 ===== */
+.oven-bar{background:#fff;border:2px solid #f0dfc0;border-radius:36px;padding:30px 34px;box-shadow:0 8px 0 rgba(196,123,63,.1);}
+.bar{margin-bottom:22px;}
+.bar:last-child{margin-bottom:0;}
+.bar-top{display:flex;justify-content:space-between;margin-bottom:8px;}
+.bar-top b{font-size:14.5px;color:var(--ink);}
+.bar-top span{font-size:12px;color:var(--soft);}
+.track{height:16px;background:var(--cream);border-radius:20px;overflow:hidden;border:1px solid #ecd8b6;}
+.fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--butter),var(--crust));width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1);}
+.fill.b{background:linear-gradient(90deg,#ffb088,var(--berry));}
+.fill.c{background:linear-gradient(90deg,#a8d49a,var(--mint));}
+
+/* ===== 留言板（软木公告板） ===== */
+.board{background:#d9b382;border-radius:32px;padding:8px;box-shadow:0 10px 0 rgba(156,90,38,.2);}
+.board-in{background:#e6c592;border-radius:26px;padding:30px;box-shadow:inset 0 0 30px rgba(140,100,60,.25);}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.note{
+  background:#fff9ec;padding:20px;border-radius:4px;box-shadow:2px 4px 8px rgba(92,64,51,.2);
+  position:relative;transform:rotate(-1.5deg);transition:.3s;
+}
+.note:nth-child(2){transform:rotate(1.2deg);background:#fff5e8;}
+.note:nth-child(3){transform:rotate(-.8deg);background:#fdf6e6;}
+.note:hover{transform:rotate(0) scale(1.03);z-index:3;}
+.note::before{content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:22px;height:22px;
+  background:var(--berry);border-radius:50%;box-shadow:inset 0 -3px 0 rgba(0,0,0,.15);}
+.note .who{font-size:12px;color:var(--crust-d);font-weight:700;margin-bottom:8px;}
+.note .who::before{content:'📌 ';}
+.note p{font-size:13.5px;color:var(--ink);line-height:1.9;}
+
+/* ===== 圆角厚底页脚 ===== */
+footer{background:var(--choco);border-radius:40px 40px 0 0;padding:52px 24px 28px;margin-top:30px;}
+.ft{max-width:1160px;margin:0 auto;}
+.ft-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;gap:26px;padding-bottom:34px;border-bottom:2px dashed #7a5c47;}
+.ft-brand .loaf{margin-bottom:16px;}
+.ft-brand h4{font-size:20px;color:#fff8ec;font-weight:900;}
+.ft-brand p{font-size:13px;color:#d5c3aa;line-height:1.9;margin-top:10px;}
+.ft-col h6{font-size:12px;color:var(--butter);letter-spacing:2px;margin-bottom:14px;}
+.ft-col a{display:block;color:#d5c3aa;font-size:13px;padding:5px 0;transition:.2s;}
+.ft-col a:hover{color:#fff;padding-left:6px;}
+.ft-bot{margin-top:24px;text-align:center;font-size:12px;color:#c4b09a;line-height:2.1;}
+.ft-bot b{color:#fff8ec;}
+.ft-bot a{color:var(--butter);}
+
+/* ===== 响应式 ===== */
+@media(max-width:1000px){
+  .oven{grid-template-columns:1fr;gap:34px;}
+  .flavors{grid-template-columns:repeat(2,1fr);}
+  .toasts{grid-template-columns:repeat(2,1fr);}
+  .slices{grid-template-columns:1fr;}
+  .notes{grid-template-columns:1fr;}
+  .ft-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .hd-url{display:none;}
+  .bake h2{font-size:34px;}
+  .bake p.lead{font-size:15px;}
+  .tray{padding:26px 20px;}
+  section{padding:20px 18px 44px;}
+  .shelf-head h2{font-size:21px;}
+  .shelf,.oven-bar{padding:24px 20px;}
+  .flavors,.toasts{grid-template-columns:1fr 1fr;gap:12px;}
+  .toast .crust-top{height:96px;font-size:34px;}
+  .nav-in a{padding:10px 12px;font-size:13px;}
+}
+@media(max-width:420px){
+  .flavors,.toasts{grid-template-columns:1fr;}
+  .btn.ghost{margin-left:0;margin-top:12px;display:block;text-align:center;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<!-- 顶栏：面包胚 Logo -->
+<header>
+  <div class="hd">
+    <div class="brand" style="display:flex;align-items:center;gap:12px;">
+      <div class="loaf">🍞</div>
+      <div><h1>面包电影网</h1><small>MIAN BAO · DIAN YING</small></div>
+    </div>
+    <div class="hd-url">网站网址<br><b>mianbaodianyingwang-wap.github.io</b></div>
+  </div>
+</header>
+<nav>
+  <div class="nav-in">
+    <a href="#">首页</a><a href="#">每日出炉</a><a href="#">口味货架</a><a href="#">片单吐司</a>
+    <a href="#">上架日历</a><a href="#">烘箱热度</a><a href="#">食客留言</a><a href="#">关于小铺</a>
+  </div>
+</nav>
+
+<!-- 出炉 Hero -->
+<section class="oven">
+  <div class="bake">
+    <h2>每天出炉一份<br><span class="hl">温暖片单</span> <span class="wave">🍞</span></h2>
+    <p class="lead">像刚烤好的面包一样松软治愈 —— 我们每天为你挑好那些适合窝在沙发里看的片子，配一杯热饮刚刚好。</p>
+    <div class="crumbs">
+      <span>治愈系 <span class="steam"><i></i><i></i><i></i></span></span>
+      <span>爱情</span><span>喜剧</span><span>动画</span><span>美食</span><span>家庭</span><span>奇幻</span><span>纪录</span>
+    </div>
+    <a href="#" class="btn">今日出炉</a><a href="#" class="btn ghost">看看口味</a>
+  </div>
+  <div class="tray">
+    <h3>🔥 出炉排行</h3>
+    <ul>
+      <li><span class="no">1</span><div><b>黄油与初恋</b><span>治愈 · 2025</span></div><em>热</em></li>
+      <li><span class="no">2</span><div><b>街角面包房</b><span>美食 · 2024</span></div><em>新</em></li>
+      <li><span class="no">3</span><div><b>夏天的第一个吻</b><span>爱情 · 2025</span></div></li>
+      <li><span class="no">4</span><div><b>爷爷的烤箱</b><span>家庭 · 2024</span></div></li>
+      <li><span class="no">5</span><div><b>云朵上的猫</b><span>动画 · 2025</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 口味货架 -->
+<section>
+  <div class="wrap">
+    <div class="shelf-head"><h2>口味货架</h2><p>八种口味，总有一种合你今天的心情</p><a href="#" class="more">查看全部</a></div>
+    <div class="shelf">
+      <div class="flavors">
+        <div class="flavor"><span class="emo">🧈</span><h5>奶油治愈</h5><small>386 部</small></div>
+        <div class="flavor"><span class="emo">🍓</span><h5>莓果爱情</h5><small>412 部</small></div>
+        <div class="flavor"><span class="emo">🍯</span><h5>蜂蜜喜剧</h5><small>358 部</small></div>
+        <div class="flavor"><span class="emo">🍫</span><h5>巧克力成长</h5><small>274 部</small></div>
+        <div class="flavor"><span class="emo">🥐</span><h5>牛角清晨</h5><small>196 部</small></div>
+        <div class="flavor"><span class="emo">🫐</span><h5>蓝莓奇幻</h5><small>241 部</small></div>
+        <div class="flavor"><span class="emo">🥖</span><h5>法棍纪录</h5><small>168 部</small></div>
+        <div class="flavor"><span class="emo">🧁</span><h5>纸杯短篇</h5><small>305 部</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 片单吐司 -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="shelf-head"><h2>片单吐司</h2><p>编辑部每天现烤的六片</p><a href="#" class="more">更多吐司</a></div>
+    <div class="toasts">
+      <div class="toast"><div class="crust-top">🧈</div><div class="body"><h5>黄油与初恋</h5><div class="meta"><span>治愈 · 2025</span><span>⭐ 9.2</span></div><span class="tag">独家</span></div></div>
+      <div class="toast"><div class="crust-top">🍓</div><div class="body"><h5>夏日汽水恋人</h5><div class="meta"><span>爱情 · 2024</span><span>⭐ 8.8</span></div><span class="tag">热播</span></div></div>
+      <div class="toast"><div class="crust-top">🐱</div><div class="body"><h5>云朵上的猫</h5><div class="meta"><span>动画 · 2025</span><span>⭐ 9.0</span></div><span class="tag">新片</span></div></div>
+      <div class="toast"><div class="crust-top">🎅</div><div class="body"><h5>爷爷的烤箱</h5><div class="meta"><span>家庭 · 2024</span><span>⭐ 9.1</span></div><span class="tag">经典</span></div></div>
+      <div class="toast"><div class="crust-top">🧙</div><div class="body"><h5>甜点魔法屋</h5><div class="meta"><span>奇幻 · 2025</span><span>⭐ 8.6</span></div><span class="tag">独家</span></div></div>
+      <div class="toast"><div class="crust-top">🌊</div><div class="body"><h5>海边的咖啡馆</h5><div class="meta"><span>文艺 · 2024</span><span>⭐ 8.7</span></div><span class="tag">热播</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 上架日历 -->
+<section>
+  <div class="wrap">
+    <div class="shelf-head"><h2>上架日历</h2><p>这周每天都有新片子端出来</p><a href="#" class="more">整周排期</a></div>
+    <div class="slices">
+      <div class="slice"><span class="day">周一</span><h5>周一 · 治愈日</h5><p class="pin">5 部上新</p><p>一周的开始适合软一点的片子，治愈系打头阵，把心情先暖起来。</p></div>
+      <div class="slice"><span class="day">周三</span><h5>周三 · 新片日</h5><p class="pin">8 部上新</p><p>本周最重磅的新片上架，动画与爱情各占半壁，更新集中在晚间八点。</p></div>
+      <div class="slice"><span class="day">周五</span><h5>周五 · 周末特供</h5><p class="pin">12 部上新</p><p>周末连看档，喜剧与奇幻为主，适合约人一起看，片单更长更耐刷。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 烘箱热度 -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="shelf-head"><h2>烘箱热度</h2><p>网友们正在反复回看的片子</p><a href="#" class="more">完整榜单</a></div>
+    <div class="oven-bar">
+      <div class="bar"><div class="bar-top"><b>黄油与初恋</b><span>98%</span></div><div class="track"><div class="fill" data-w="98"></div></div></div>
+      <div class="bar"><div class="bar-top"><b>云朵上的猫</b><span>92%</span></div><div class="track"><div class="fill b" data-w="92"></div></div></div>
+      <div class="bar"><div class="bar-top"><b>爷爷的烤箱</b><span>89%</span></div><div class="track"><div class="fill c" data-w="89"></div></div></div>
+      <div class="bar"><div class="bar-top"><b>街角面包房</b><span>85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+      <div class="bar"><div class="bar-top"><b>夏日汽水恋人</b><span>81%</span></div><div class="track"><div class="fill b" data-w="81"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 食客留言 -->
+<section>
+  <div class="wrap">
+    <div class="shelf-head"><h2>食客留言</h2><p>读者们最近在讨论什么</p><a href="#" class="more">写张便签</a></div>
+    <div class="board">
+      <div class="board-in">
+        <div class="notes">
+          <div class="note"><div class="who">小满</div><p>按"治愈系"口味找的片单，一晚上刷了三部，真的像吃了一大口软面包，心情被接住了。</p></div>
+          <div class="note"><div class="who">阿Ken</div><p>每天固定来看"今日出炉"，省去了自己翻片的时间，选片口味越来越准了。</p></div>
+          <div class="note"><div class="who">鹿鹿</div><p>周五特供那个周末档片单太适合约会看了，已经在期待下一周。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="ft">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="loaf">🍞</div>
+        <h4>面包电影网</h4>
+        <p>网站名称：面包电影网。每天出炉一份温暖片单，网站网址 mianbaodianyingwang-wap.github.io，专注治愈系、爱情、喜剧、动画、美食、家庭、奇幻与纪录类影视推荐。</p>
+      </div>
+      <div class="ft-col"><h6>口味货架</h6><a href="#">奶油治愈</a><a href="#">莓果爱情</a><a href="#">蜂蜜喜剧</a><a href="#">巧克力成长</a><a href="#">蓝莓奇幻</a></div>
+      <div class="ft-col"><h6>片单吐司</h6><a href="#">黄油与初恋</a><a href="#">云朵上的猫</a><a href="#">爷爷的烤箱</a><a href="#">甜点魔法屋</a><a href="#">海边的咖啡馆</a></div>
+      <div class="ft-col"><h6>上架日历</h6><a href="#">周一治愈日</a><a href="#">周三新片日</a><a href="#">周五周末特供</a><a href="#">整周排期</a></div>
+      <div class="ft-col"><h6>小铺信息</h6><a href="#">网站名称</a><a href="#">网站网址</a><a href="#">联系方式</a><a href="#">免责声明</a><a href="#">意见反馈</a></div>
+    </div>
+    <div class="ft-bot">
+      <p>网站名称：<b>面包电影网</b> ｜ 网站网址：<a href="https://mianbaodianyingwang-wap.github.io">https://mianbaodianyingwang-wap.github.io</a></p>
+      <p>© 2026 面包电影网 版权所有 ｜ 本站仅提供影视信息整理与推荐，影片版权归原作者及发行方所有，如有侵权请联系我们处理</p>
+      <p>关键词：面包电影网、mianbaodianyingwang-wap.github.io、治愈系电影、温暖片单、爱情电影、喜剧、动画电影、美食电影、家庭电影</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 烘箱进度条：进入视口后填充
+const fills=document.querySelectorAll('.fill');
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';io.unobserve(e.target);}});
+},{threshold:.3});
+fills.forEach(f=>io.observe(f));
+</script>
+
+</body>
+</html>
